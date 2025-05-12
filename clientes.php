@@ -22,7 +22,7 @@ require('conexao.php');
         <div class="col-md-12">
           <div class="card">
             <div class="card-header">
-              <h4> Clientes
+              <h4>Clientes
                 <a href="criar-cliente.php" class="btn btn-primary float-end">Cadastrar Cliente</a>
               </h4>
             </div>

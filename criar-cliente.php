@@ -1,3 +1,9 @@
+<?php require ('conexao.php'); 
+require('cidadeDao.php');
+
+?>
+
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -12,7 +18,7 @@
     <?php include ('navbar.php'); ?>
    <div class="container mt-5">
 <div class="row">
-    <div class="col-md-12">
+<div class="col-md-12">
         <div class="card">
             <div class="card-header">
                 <h4>
@@ -27,22 +33,32 @@
                         </div>
                         <div class="mb-3">
                             <label>CNPJ-CPF</label>
-                            <input type="email" name="email" class="form-control">
+                            <input type="text" name="cnpj_cpf" class="form-control">
                         </div>
                         <div class="mb-3">
                             <label>Endereço</label>
-                            <input type="date" name="data_nascimento" class="form-control">
+                            <input type="text" name="endereco" class="form-control">
                         </div>
                         <div class="mb-3">
                             <label>Telefone</label>
-                            <input type="password" name="senha" class="form-control">
+                            <input type="text" name="telefone" class="form-control">
                         </div>
-                            <div class="mb-3">
-                            <label>Cidade</label>
-                            <input type="password" name="senha" class="form-control">
+                                <?php
+                                try {
+                                    $cidadeObj = new CidadeDao();
+                                    echo "<div class='col-md-2'>";
+                                    echo "<div class='mb-3'>";
+                                    echo "<label>Cidade</label>";
+                                    echo $cidadeObj->getListCidade($conexao);
+                                    echo '</div>';
+                                    echo '</div>';
+                                } catch (Exception $e) {
+                                    echo $e->getMessage();
+                                }
+                                ?>
                         </div>
                         <div class="mb-3">
-                        <button type="submit" name="create_usuario" class="btn btn-primary">Salvar</button>
+                        <button type="submit" name="criar-cliente" class="btn btn-primary">Salvar</button>
                     </form>
                 </div>
             </div>
