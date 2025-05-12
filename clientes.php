@@ -39,6 +39,30 @@ require('conexao.php');
                   </tr>
                 </thead>
                 <tbody>
+                  <?php
+                  $sql = 'SELECT * FROM cliente';
+                  $clientes = mysqli_query($conexao, $sql);
+                  if (mysqli_num_rows($clientes) > 0) {
+                    foreach($clientes as $cliente) {
+                  ?>
+                  <tr>
+                    <td><?=$cliente['id']?></td>
+                    <td><?=$cliente['nome']?></td>
+                    <td><?=$cliente['cnpj_cpf']?></td>
+                    <td><?=$cliente['endereco']?></td>
+                    <td><?=$cliente['telefone']?></td>
+                    <td><?=$cliente['cidade_id']?></td>
+                    
+                    
+                  </tr>
+                      <?php
+                        }
+                 } else {
+                   echo '<h5>Nenhum usuário encontrado</h5>';
+                 }
+                 ?>
+                </tbody>
+                <tbody>
 
 
 
