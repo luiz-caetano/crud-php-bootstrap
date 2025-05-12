@@ -40,18 +40,26 @@ require('conexao.php');
                 </thead>
                 <tbody>
                   <?php
-                  $sql = 'SELECT * FROM cliente';
+                  $sql = 'SELECT 
+                      C.ID as cliente_id, 
+                      C.NOME as nome, 
+                      C.CNPJ_CPF as cnpj_cpf, 
+                      C.ENDERECO as endereco,
+                      C.CIDADE_ID as cidade_id,
+                      C.TELEFONE as telefone, 
+                      CI.NOME AS CIDADE
+                      from cliente C, cidade CI where CI.ID = C.CIDADE_ID';
                   $clientes = mysqli_query($conexao, $sql);
                   if (mysqli_num_rows($clientes) > 0) {
                     foreach($clientes as $cliente) {
                   ?>
                   <tr>
-                    <td><?=$cliente['id']?></td>
+                    <td><?=$cliente['cliente_id']?></td>
                     <td><?=$cliente['nome']?></td>
                     <td><?=$cliente['cnpj_cpf']?></td>
                     <td><?=$cliente['endereco']?></td>
                     <td><?=$cliente['telefone']?></td>
-                    <td><?=$cliente['cidade_id']?></td>
+                    <td><?=$cliente['CIDADE']?></td>
                     
                     
                   </tr>
