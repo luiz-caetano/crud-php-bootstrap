@@ -22,11 +22,11 @@ require('cidadeDao.php');
         <div class="card">
             <div class="card-header">
                 <h4>
-                    Adicionar Usuário
+                    Cadastrar Clientes
                     <a href="clientes.php" class="btn btn-danger float-end">Voltar</a>
                 </h4>
                 <div class="card-body">
-                    <form action="acoes.php" method="POST">
+                    <form action="clienteQuery.php" method="POST">
                         <div class="mb-3">
                             <label>Nome</label>
                             <input type="text" name="nome" class="form-control">

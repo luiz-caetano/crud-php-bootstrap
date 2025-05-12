@@ -1,13 +1,21 @@
 <?php 
 session_start();
 require ('conexao.php');
+require('cidadeDao.php');
 
 
 if(isset($_POST['criar-cliente'])) {
-    $nome = mysqli_esacpe_string($conexao, trim($_POST['nome']));
-    $cnpj_cpf = mysqli_escape_string($conexao, trim($_POST['cnpj_cpf']));
-    $endereco = mysqli_escape_string($conexao, trim($_POST['endereco']));
-    $telefone = mysqli_escape_string($conexao, trim($_POST['telefone']));
-
+    $nome = $_POST['nome'];
+    $cnpj_cpf = $_POST['cnpj_cpf'];
+    $endereco = $_POST['endereco'];
+    $telefone = $_POST['telefone'];
+    $cidade = $_POST['cidadeSelect'];
 }
+
+    $sql = "INSERT INTO cliente (nome, cnpj_cpf, endereco, cidade_id, telefone) VALUES ('$nome', '$cnpj_cpf', '$endereco', '$cidade', '$telefone')";
+    echo $sql;
+
+    mysqli_query($conexao,$sql);
+
+   
 ?>
