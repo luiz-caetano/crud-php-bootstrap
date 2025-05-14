@@ -16,6 +16,4 @@ if(isset($_POST['criar-cliente'])) {
     echo $sql;
 
     mysqli_query($conexao,$sql);
-
-   
 ?>

@@ -30,12 +30,13 @@ require('conexao.php');
               <table class="table table-bordered table-striped">
                 <thead>
                   <tr>
-                    <th>ID</th>
                     <th>Nome</th>
                     <th>CNPJ-CPF</th>
                     <th>Endereço</th>
                     <th>Telefone</th>
                     <th>Cidade</th>
+                    <th>Ações</th>
+
                   </tr>
                 </thead>
                 <tbody>
@@ -54,13 +55,19 @@ require('conexao.php');
                     foreach($clientes as $cliente) {
                   ?>
                   <tr>
-                    <td><?=$cliente['cliente_id']?></td>
                     <td><?=$cliente['nome']?></td>
                     <td><?=$cliente['cnpj_cpf']?></td>
                     <td><?=$cliente['endereco']?></td>
                     <td><?=$cliente['telefone']?></td>
                     <td><?=$cliente['CIDADE']?></td>
-                    
+                    <td>
+                      <a href="cliente-edit.php?id=<?=$cliente['cliente_id']?>" class="btn btn-success btn-sm"><span class="bi-pencil-fill"></span>&nbsp;Editar</a>
+                      <form action="clienteQuery.php" method="POST" class="d-inline">
+                        <button onclick="return confirm('Tem certeza que deseja excluir?')" type="submit" name="delete_usuario" value="<?=$cliente['cliente_id']?>" class="btn btn-danger btn-sm">
+                          <span class="bi-trash3-fill"></span>&nbsp;Excluir
+                        </button>
+                      </form>
+                    </td>
                     
                   </tr>
                       <?php
