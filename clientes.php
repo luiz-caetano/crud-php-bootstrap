@@ -30,6 +30,7 @@ require('conexao.php');
               <table class="table table-bordered table-striped">
                 <thead>
                   <tr>
+                    <th>ID</th>
                     <th>Nome</th>
                     <th>CNPJ-CPF</th>
                     <th>Endereço</th>
