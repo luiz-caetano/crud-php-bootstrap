@@ -13,7 +13,5 @@ if(isset($_POST['criar-cliente'])) {
 }
 
     $sql = "INSERT INTO cliente (nome, cnpj_cpf, endereco, cidade_id, telefone) VALUES ('$nome', '$cnpj_cpf', '$endereco', '$cidade', '$telefone')";
-    echo $sql;
-
     mysqli_query($conexao,$sql);
 ?>

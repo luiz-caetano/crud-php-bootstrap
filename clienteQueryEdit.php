@@ -9,3 +9,7 @@ if (isset($_POST['cliente_update'])) {
     $telefone = $_POST['telefone'];
     $cidade = $_POST['cidadeSelect'];
 }
+    $sql = "UPDATE cliente,
+    SET nome = '$nome', cnpj_cpf = '$cnpj_cpf', endereco = '$endereco', telefone = '$telefone', cidade = '$cidade';
+    ";
+    mysqli_query($conexao, $query);
